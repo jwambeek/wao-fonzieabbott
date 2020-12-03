@@ -1,1 +1,1 @@
-from . import app_report
+from . import decimal_app

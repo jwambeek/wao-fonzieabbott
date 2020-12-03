@@ -1,6 +1,6 @@
 {
     'name' : 'Decimal',
-    'version': '1.4.0',
+    'version': '1.4',
     'Summary': 'Change decimal places',
     'description': 'Change decimal places in the field',
     'license': 'LGPL-3',

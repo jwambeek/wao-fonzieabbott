@@ -5,7 +5,9 @@
     'description': 'To print the new report',
     'license': 'LGPL-3',
     'depends': [
-        'account_accountant'
+        'account_accountant',
+        'account',
+        'account_consolidation'
     ],    
     'installable': True,
     'application':True,

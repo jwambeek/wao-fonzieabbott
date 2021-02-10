@@ -16,12 +16,15 @@ class Transfers(models.Model):
             .filtered(lambda move: move.state == 'draft')\
             ._action_confirm()
 
-
         # run scheduler for moves forecasted to not have enough in stock
-        #self.mapped('move_lines').filtered(lambda move: move.state not in ('draft', 'cancel', 'done'))._trigger_scheduler()
-        #return True
+        self.mapped('move_lines').filtered(lambda move: move.state not in ('draft', 'cancel', 'done'))._trigger_scheduler()
+        return True
 
-        self.filtered(lambda picking: picking.state == 'draft').button_validate()
+        #self.filtered(lambda picking: picking.state == 'draft').button_validate()
+        if self.forcast_availability != 'Available':
+            self.action_assign()
+
+
 
     def action_assign(self):
         """ Check availability of picking moves.
